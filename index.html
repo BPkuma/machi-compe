@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>市民が考える「街」アイディアコンペ</title>
+  <style>
+    /* ＝＝＝ ベーススタイル ＝＝＝ */
+    :root {
+      --bg-color: #f0f2f5; /* 淡いグレー */
+      --text-main: #333333;
+      --text-light: #666666;
+      --text-muted: #999999;
+      --primary-color: #0ea5e9;
+      --accent-color: #f59e0b;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ＝＝＝ ヘッダー ＝＝＝ */
+    .header {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+    }
+
+    .header-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #444;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .header-nav {
+      display: none;
+      gap: 24px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--text-light);
+    }
+
+    .header-nav a:hover {
+      color: var(--accent-color);
+      transition: color 0.3s;
+    }
+
+    /* ＝＝＝ ヒーローセクション（トップ） ＝＝＝ */
+    .hero-section {
+      padding: 40px 20px 60px;
+    }
+
+    .hero-image-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border: 4px solid #ffffff;
+      background-color: #ffffff;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-text-area {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .hero-catchphrase {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--text-main);
+      margin: 0 0 20px;
+      letter-spacing: -1px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #fef3c7;
+      color: #92400e;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .hero-description {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    /* ＝＝＝ スケジュール・結果発表 ＝＝＝ */
+    .schedule-section {
+      background-color: #f0f9ff; /* 薄い水色 */
+      padding: 60px 0;
+      border-top: 1px solid #e0f2fe;
+      border-bottom: 1px solid #e0f2fe;
+    }
+
+    .schedule-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .section-title-sky {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0369a1;
+      margin: 0 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .schedule-card {
+      background-color: #ffffff;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e0f2fe;
+    }
+
+    .announce-date {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin: 24px 0;
+    }
+
+    .note-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* 賞のグリッド */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .award-item {
+      padding: 12px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+    }
+
+    .award-item span:last-child {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .award-gold { background-color: #fefce8; border-color: #fef08a; color: #a16207; font-weight: bold; }
+    .award-silver { background-color: #f9fafb; border-color: #e5e7eb; color: #4b5563; font-weight: bold; }
+    .award-special { background-color: #fff7ed; border-color: #fed7aa; color: #c2410c; font-weight: bold; }
+    .award-wish { background-color: #fdf2f8; border-color: #fbcfe8; color: #be185d; font-weight: bold; }
+    .award-fun { background-color: #f0fdf4; border-color: #bbf7d0; color: #15803d; font-weight: bold; }
+
+    /* ＝＝＝ インタビューセクション ＝＝＝ */
+    .interviews-section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h3 {
+      font-size: 1.8rem;
+      margin: 0 0 16px;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .interviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .interview-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+      border: 1px solid #eaeaea;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .interview-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
+
+    .card-image-wrapper {
+      position: relative;
+      background-color: #f5f5f5;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .coming-soon-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(230, 230, 230, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .coming-soon-label {
+      background-color: #333;
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .card-icon {
+      font-size: 4rem;
+      opacity: 0.2;
+      transition: transform 0.5s;
+    }
+
+    .interview-card:hover .card-icon {
+      transform: scale(1.1);
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .card-vol {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 0 0 12px;
+      color: #ccc; /* 準備中のため薄い色 */
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: #ccc;
+      margin: 0 0 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    .more-btn-wrapper {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .more-btn {
+      background-color: #e5e5e5;
+      color: #888;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: not-allowed;
+    }
+
+    /* ＝＝＝ コンペ概要 ＝＝＝ */
+    .about-section {
+      background-color: #ffffff;
+      padding: 60px 0;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .about-card {
+      background-color: var(--bg-color);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-item {
+      margin-bottom: 24px;
+    }
+
+    .about-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-item h4 {
+      font-size: 1rem;
+      color: var(--text-main);
+      border-bottom: 1px solid #dcdcdc;
+      padding-bottom: 8px;
+      margin: 0 0 12px;
+    }
+
+    .about-item p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    /* ＝＝＝ フッター ＝＝＝ */
+    .footer {
+      background-color: #333333;
+      color: #dddddd;
+      padding: 48px 20px 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto 48px;
+    }
+
+    .footer-logo {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 0 0 16px;
+    }
+
+    .footer-info p {
+      font-size: 0.85rem;
+      margin: 0 0 8px;
+    }
+
+    .footer-contact h3 {
+      color: #ffffff;
+      font-size: 1rem;
+      margin: 0 0 16px;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888888;
+      border-top: 1px solid #444;
+      padding-top: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* ＝＝＝ レスポンシブ対応（PC向け） ＝＝＝ */
+    @media (min-width: 768px) {
+      .header-nav {
+        display: flex;
+      }
+      
+      .hero-catchphrase {
+        font-size: 2.5rem;
+      }
+
+      .desktop-br {
+        display: block;
+      }
+      
+      .mobile-br {
+        display: none;
+      }
+
+      .awards-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .interviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-contact {
+        text-align: right;
+      }
+    }
+
+    /* スマホ向け改行調整 */
+    @media (max-width: 767px) {
+      .desktop-br {
+        display: none;
+      }
+      .mobile-br {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="container header-container">
+      <h1 class="header-title">市民が考える「街」アイディアコンペ</h1>
+      <nav class="header-nav">
+        <a href="#about">コンペ概要</a>
+        <a href="#schedule">結果発表について</a>
+        <a href="#interviews">参加者の声</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ヒーローセクション -->
+    <section class="hero-section">
+      <div class="hero-image-wrapper">
+        <img src="main.jpg" alt="市民が考える「街」アイディアコンペ in いちのせき">
+      </div>
+
+      <div class="hero-text-area container">
+        <h2 class="hero-catchphrase">あなたの想いが、未来の街をつくる。</h2>
+        <div class="badge">✨ 応募総数 150作品 突破！ ✨</div>
+        <p class="hero-description">
+          一ノ関駅周辺・大町通り商店街を舞台にしたアイディアコンペに、<br class="desktop-br">
+          たくさんの夢あふれるご応募をいただき、誠にありがとうございました。
+        </p>
+      </div>
+    </section>
+
+    <!-- お知らせ・結果発表告知 -->
+    <section id="schedule" class="schedule-section">
+      <div class="schedule-container">
+        <h3 class="section-title-sky"><span>📢</span> 審査結果発表について</h3>
+        
+        <div class="schedule-card">
+          <p>現在、厳正なる二次審査を行っております。<br class="desktop-br">素晴らしいアイディアばかりで審査は難航しておりますが、結果発表までもう少々お待ちください。</p>
+          
+          <div class="announce-date">2026年3月31日 発表予定</div>
+          
+          <p class="note-text">※受賞者の方へはメールまたは郵送にて通知するとともに、本サイトにて発表いたします。</p>
+          
+          <!-- 賞のプレースホルダー -->
+          <div class="awards-grid">
+            <div class="award-item award-gold">
+              <span>金賞</span>
+              <span>発表待ち</span>
+            </div>
+            <div class="award-item award-silver">
+              <span>銀賞</span>
+              <span>発表待ち</span>
+            </div>
+            <div class="award-item award-special">
+              <span>特別賞</span>
+              <span>発表待ち</span>
+            </div>
+            <div class="award-item award-wish">
+              <span>あったらいいな賞</span>
+              <span>発表待ち</span>
+            </div>
+            <div class="award-item award-fun">
+              <span>楽しくなる賞</span>
+              <span>発表待ち</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 順次更新予定：インタビューセクション -->
+    <section id="interviews" class="interviews-section container">
+      <div class="section-header">
+        <h3>みんなの「街」への想い</h3>
+        <p>150以上のアイディアの裏側にある、それぞれのストーリー。<br class="desktop-br">応募者の方々へのインタビューを順次公開していきます。</p>
+      </div>
+
+      <div class="interviews-grid">
+        <!-- インタビュー記事カード 1 -->
+        <div class="interview-card">
+          <div class="card-image-wrapper">
+            <div class="coming-soon-overlay">
+              <span class="coming-soon-label">COMING SOON</span>
+            </div>
+            <div class="card-icon">☕️</div>
+          </div>
+          <div class="card-content">
+            <div class="card-vol">INTERVIEW Vol.1</div>
+            <h4 class="card-title">インタビュータイトルがここに入ります</h4>
+            <p class="card-desc">ここに応募者のアイディアの概要や、商店街への想い、どのようなきっかけで今回のコンペに参加したのかなどの簡単な紹介文が入ります...</p>
+            <div class="card-footer">結果発表後、順次公開予定</div>
+          </div>
+        </div>
+
+        <!-- インタビュー記事カード 2 -->
+        <div class="interview-card">
+          <div class="card-image-wrapper">
+            <div class="coming-soon-overlay">
+              <span class="coming-soon-label">COMING SOON</span>
+            </div>
+            <div class="card-icon">🌳</div>
+          </div>
+          <div class="card-content">
+            <div class="card-vol">INTERVIEW Vol.2</div>
+            <h4 class="card-title">インタビュータイトルがここに入ります</h4>
+            <p class="card-desc">ここに応募者のアイディアの概要や、商店街への想い、どのようなきっかけで今回のコンペに参加したのかなどの簡単な紹介文が入ります...</p>
+            <div class="card-footer">結果発表後、順次公開予定</div>
+          </div>
+        </div>
+
+        <!-- インタビュー記事カード 3 -->
+        <div class="interview-card">
+          <div class="card-image-wrapper">
+            <div class="coming-soon-overlay">
+              <span class="coming-soon-label">COMING SOON</span>
+            </div>
+            <div class="card-icon">🛍️</div>
+          </div>
+          <div class="card-content">
+            <div class="card-vol">INTERVIEW Vol.3</div>
+            <h4 class="card-title">インタビュータイトルがここに入ります</h4>
+            <p class="card-desc">ここに応募者のアイディアの概要や、商店街への想い、どのようなきっかけで今回のコンペに参加したのかなどの簡単な紹介文が入ります...</p>
+            <div class="card-footer">結果発表後、順次公開予定</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="more-btn-wrapper">
+        <button class="more-btn" disabled>もっと見る (準備中)</button>
+      </div>
+    </section>
+
+    <!-- コンペ概要（おさらい） -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <h3>募集概要のおさらい</h3>
+        </div>
+        
+        <div class="about-card">
+          <div class="about-item">
+            <h4>テーマ</h4>
+            <p>一ノ関駅周辺に人の流れを作る・商店街をもう一度活性化させる店舗づくりを実現するため、この街（商店街）に来たくなる・立ち寄りたくなる店舗のアイディア。<br>「こんなお店があったら通いたい！」という想い。</p>
+          </div>
+          <div class="about-grid">
+            <div class="about-item">
+              <h4>対象エリア</h4>
+              <p>一関市大町通り商店街</p>
+            </div>
+            <div class="about-item">
+              <h4>募集期間</h4>
+              <p>2026.2.1 〜 2026.2.28（受付終了）</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-info">
+        <h2 class="footer-logo">市民が考える「街」アイディアコンペ</h2>
+        <p>主催：有限会社東西不動産ホーム 企画開発室</p>
+        <p>　　　DEN stationery + furniture</p>
+        <p style="color: #999; margin-top: 16px;">後援：一関市 / 一関市教育委員会</p>
+      </div>
+      <div class="footer-contact">
+        <h3>お問い合わせ先</h3>
+        <p>DEN stationery + furniture</p>
+        <p>〒021-0881 岩手県一関市大町4-16</p>
+        <p>TEL: 0191-78-2368</p>
+        <p>MAIL: info@den-sf.jp</p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 東西不動産ホーム / DEN stationery + furniture All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
