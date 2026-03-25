@@ -98,7 +98,7 @@ a {
     8px 8px 0 rgba(180,150,110,0.3);
   border: 6px solid var(--white);
   background-color: var(--white);
-  transform: rotate(-3deg);
+  transform: rotate(-20deg);
 }
 
 .hero-image-wrapper img {
@@ -359,6 +359,7 @@ a {
   margin: 0 0 14px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.65;
