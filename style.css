@@ -98,7 +98,7 @@ a {
     8px 8px 0 rgba(180,150,110,0.3);
   border: 6px solid var(--white);
   background-color: var(--white);
-  transform: rotate(-0.5deg);
+  transform: rotate(-2.5deg);
 }
 
 .hero-image-wrapper img {
