@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- 背景 -->
+  <rect width="32" height="32" rx="6" fill="#f5efe3"/>
+  <!-- 左の建物（小） -->
+  <rect x="3" y="16" width="8" height="11" rx="1" fill="#5c3d1e"/>
+  <rect x="5" y="12" width="4" height="4" rx="0.5" fill="#5c3d1e"/>
+  <!-- 右の建物（大） -->
+  <rect x="13" y="11" width="10" height="16" rx="1" fill="#e07b39"/>
+  <!-- 右の建物の屋根三角 -->
+  <polygon points="12,11 18,5 24,11" fill="#c4622a"/>
+  <!-- 右端の建物 -->
+  <rect x="25" y="18" width="6" height="9" rx="1" fill="#5c3d1e"/>
+  <rect x="26" y="14" width="4" height="4" rx="0.5" fill="#5c3d1e"/>
+  <!-- 地面ライン -->
+  <rect x="2" y="27" width="28" height="2" rx="1" fill="#5c3d1e" opacity="0.4"/>
+  <!-- 建物の窓 -->
+  <rect x="16" y="14" width="2.5" height="3" rx="0.3" fill="#f5efe3" opacity="0.8"/>
+  <rect x="20" y="14" width="2.5" height="3" rx="0.3" fill="#f5efe3" opacity="0.8"/>
+  <!-- ドア -->
+  <rect x="16.5" y="21" width="3" height="6" rx="0.5" fill="#f5efe3" opacity="0.7"/>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -g pixelWidth -g pixelHeight -g fileSize exam1.jpg exam2.jpg exam3.jpg main.jpg)",
+      "Bash(sips -Z 1200 exam1.jpg exam2.jpg exam3.jpg)",
+      "Bash(cwebp -q 80 exam1.jpg -o exam1.webp)",
+      "Bash(cwebp -q 80 exam2.jpg -o exam2.webp)",
+      "Bash(cwebp -q 80 exam3.jpg -o exam3.webp)",
+      "Bash(cwebp -q 85 main.jpg -o main.webp)",
+      "Bash(ls -lh *.jpg *.webp)"
+    ]
+  }
+}

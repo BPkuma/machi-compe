@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://machi-compe.pages.dev/sitemap.xml
