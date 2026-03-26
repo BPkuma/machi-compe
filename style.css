@@ -245,6 +245,67 @@ p {
 .award-wish    { background-color: #f0ede8; border-color: #c4a882; color: #5c3d1e; }
 .award-fun     { background-color: #edf4ec; border-color: #a8c8a0; color: #2a5a28; }
 
+/* ＝＝＝ 審査写真ギャラリー ＝＝＝ */
+.exam-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.exam-photo {
+  background-color: var(--white);
+  border: 5px solid var(--white);
+  box-shadow: 3px 3px 0 var(--tan);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.exam-photo img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.exam-photo-caption {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding: 8px 6px 6px;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  text-align: center;
+}
+
+.exam-photo--1 { transform: rotate(-1.5deg); }
+.exam-photo--2 { transform: rotate(1deg); }
+.exam-photo--3 { transform: rotate(-0.8deg); grid-column: 1 / -1; }
+
+.exam-photo--3 img {
+  height: 220px;
+}
+
+.exam-photo:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 5px 5px 0 var(--tan);
+  z-index: 1;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .exam-photos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .exam-photo--3 {
+    grid-column: auto;
+  }
+  .exam-photo img,
+  .exam-photo--3 img {
+    height: 200px;
+  }
+}
+
 /* ＝＝＝ インタビューセクション ＝＝＝ */
 .interviews-section {
   padding: 80px 0;
