@@ -270,7 +270,7 @@ p {
 
 .exam-photo-caption {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   padding: 8px 6px 6px;
   font-style: italic;
@@ -403,7 +403,7 @@ p {
 }
 
 .card-vol {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 8px;
@@ -490,7 +490,7 @@ p {
 }
 
 .about-item h4 {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-color);
   border-bottom: 1px dashed rgba(255,255,255,0.15);
