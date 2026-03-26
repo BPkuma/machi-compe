@@ -37,6 +37,10 @@ a {
   color: inherit;
 }
 
+p {
+  font-size: 1.2rem;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -261,8 +265,9 @@ a {
 
 .section-header p {
   color: var(--text-light);
-  margin: 0;
-  font-size: 1.15rem;
+  margin: 0 auto 12px;
+  max-width: 680px;
+  font-size: 1.2rem;
   line-height: 1.8;
 }
 
@@ -547,6 +552,10 @@ a {
   }
   .mobile-br {
     display: block;
+  }
+
+  .section-header {
+    padding: 0 20px;
   }
 
   .schedule-card {
