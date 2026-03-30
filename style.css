@@ -469,8 +469,7 @@ p {
   padding: 100px 24px;
   text-align: center;
   background: linear-gradient(135deg, #fff8ee 0%, #fdf0d8 50%, #fae8c4 100%);
-  border-top: 3px solid var(--border);
-  border-bottom: 3px solid var(--border);
+  border-bottom: 2px dashed var(--border);
   overflow: hidden;
   position: relative;
 }
