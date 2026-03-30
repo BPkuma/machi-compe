@@ -25,6 +25,64 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "市民が考える「街」アイディアコンペ in いちのせき",
+    "description": "一ノ関駅周辺・大町通り商店街を舞台にした市民参加型のアイディアコンペ。150以上の応募作品を受け付け、2026年3月31日に審査結果を発表。",
+    "url": "https://machi-compe.pages.dev/",
+    "image": "https://machi-compe.pages.dev/images/main.jpg",
+    "startDate": "2026-02-01",
+    "endDate": "2026-03-31",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "一関市大町通り商店街",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "大町",
+        "addressLocality": "一関市",
+        "addressRegion": "岩手県",
+        "postalCode": "021-0881",
+        "addressCountry": "JP"
+      }
+    },
+    "organizer": [
+      {
+        "@type": "Organization",
+        "name": "有限会社東西不動産ホーム 企画開発室",
+        "url": "https://machi-compe.pages.dev/"
+      },
+      {
+        "@type": "Organization",
+        "name": "DEN stationery + furniture",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "大町4-16",
+          "addressLocality": "一関市",
+          "addressRegion": "岩手県",
+          "postalCode": "021-0881",
+          "addressCountry": "JP"
+        },
+        "telephone": "0191-78-2368"
+      }
+    ],
+    "sponsor": [
+      {
+        "@type": "GovernmentOrganization",
+        "name": "一関市"
+      },
+      {
+        "@type": "GovernmentOrganization",
+        "name": "一関市教育委員会"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -46,7 +104,7 @@
       <div class="hero-image-wrapper">
         <picture>
           <source srcset="images/main.webp" type="image/webp">
-          <img src="images/main.jpg" alt="市民が考える「街」アイディアコンペ in いちのせき">
+          <img src="images/main.jpg" alt="一ノ関駅周辺・大町通り商店街を舞台にした市民が考える「街」アイディアコンペのメインビジュアル">
         </picture>
       </div>
 
