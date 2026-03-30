@@ -379,6 +379,183 @@ p {
 }
 
 /* ＝＝＝ インタビューセクション ＝＝＝ */
+/* ＝＝＝ 随時募集セクション ＝＝＝ */
+
+@keyframes oc-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes oc-badge-pop {
+  0%   { transform: scale(0.7) rotate(-6deg); opacity: 0; }
+  60%  { transform: scale(1.1) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+}
+
+@keyframes oc-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 123, 57, 0.45); }
+  50%       { box-shadow: 0 0 0 14px rgba(224, 123, 57, 0); }
+}
+
+@keyframes oc-arrow-slide {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(6px); }
+}
+
+.open-call-section {
+  padding: 100px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, #fff8ee 0%, #fdf0d8 50%, #fae8c4 100%);
+  border-top: 3px solid var(--border);
+  border-bottom: 3px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.open-call-section::before,
+.open-call-section::after {
+  content: "✦";
+  position: absolute;
+  font-size: 120px;
+  color: rgba(224,123,57,0.07);
+  pointer-events: none;
+}
+.open-call-section::before { top: -20px; left: -20px; }
+.open-call-section::after  { bottom: -20px; right: -20px; }
+
+.open-call-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  animation: oc-fade-up 0.7s ease both;
+}
+
+.open-call-badge {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  padding: 5px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  animation: oc-badge-pop 0.6s cubic-bezier(.34,1.56,.64,1) 0.2s both;
+}
+
+.open-call-title {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--primary-color);
+  line-height: 1.25;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.open-call-title .accent {
+  color: var(--accent-color);
+  position: relative;
+}
+
+.open-call-title .accent::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  margin-top: 4px;
+  animation: oc-fade-up 0.5s ease 0.6s both;
+}
+
+.open-call-lead {
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.9;
+  margin: 0 0 36px;
+  animation: oc-fade-up 0.6s ease 0.3s both;
+}
+
+.open-call-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+  animation: oc-fade-up 0.6s ease 0.45s both;
+}
+
+.open-call-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 32px;
+  min-width: 200px;
+  flex: 1;
+  max-width: 260px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.open-call-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(92,61,30,0.12);
+}
+
+.open-call-card-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.open-call-card p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.open-call-sub {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0 0 40px;
+  animation: oc-fade-up 0.6s ease 0.55s both;
+}
+
+.open-call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.1rem;
+  padding: 18px 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  animation: oc-pulse 2.4s ease-in-out infinite, oc-fade-up 0.6s ease 0.65s both;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.open-call-btn:hover {
+  background-color: #c9682a;
+  transform: scale(1.04);
+  animation: none;
+  box-shadow: 0 6px 20px rgba(224,123,57,0.45);
+}
+
+.open-call-btn-arrow {
+  display: inline-block;
+  animation: oc-arrow-slide 1.4s ease-in-out infinite;
+}
+
+.open-call-btn:hover .open-call-btn-arrow {
+  animation: none;
+}
+
 .interviews-section {
   padding: 80px 0;
 }
