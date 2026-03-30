@@ -6,7 +6,7 @@
   const ctx = canvas.getContext('2d');
   const COLORS = ['#e07b39','#5c3d1e','#7c9a6e','#c4a882','#f5c842','#e85d75','#4fa3d1'];
   const SHAPES = ['rect','ribbon'];
-  const COUNT = 90;
+  const COUNT = 130;
   let pieces = [];
   let raf;
   let running = false;
@@ -94,7 +94,7 @@
   // IntersectionObserver でセクションが見えたら起動
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => e.isIntersecting ? start() : stop());
-  }, { threshold: 0.1 });
+  }, { threshold: 0.01 });
 
   observer.observe(section);
   window.addEventListener('resize', () => { if (running) { resize(); } });
