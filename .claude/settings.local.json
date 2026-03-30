@@ -7,7 +7,8 @@
       "Bash(cwebp -q 80 exam2.jpg -o exam2.webp)",
       "Bash(cwebp -q 80 exam3.jpg -o exam3.webp)",
       "Bash(cwebp -q 85 main.jpg -o main.webp)",
-      "Bash(ls -lh *.jpg *.webp)"
+      "Bash(ls -lh *.jpg *.webp)",
+      "Bash(git checkout:*)"
     ]
   }
 }
