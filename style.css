@@ -241,6 +241,28 @@ p {
   transform-origin: bottom center;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .section-title-result {
+    animation: none;
+  }
+  .result-trophy {
+    animation: none;
+  }
+  /* open-call はJSがis-visibleを即付与するため、アニメーションだけ無効化 */
+  .open-call-section.is-visible .open-call-inner,
+  .open-call-section.is-visible .open-call-badge,
+  .open-call-section.is-visible .open-call-title .accent::after,
+  .open-call-section.is-visible .open-call-lead,
+  .open-call-section.is-visible .open-call-cards,
+  .open-call-section.is-visible .open-call-sub,
+  .open-call-section.is-visible .open-call-btn,
+  .open-call-btn-arrow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .schedule-card {
   background-color: var(--white);
   padding: 36px 40px;
@@ -467,6 +489,11 @@ p {
 .open-call-inner {
   max-width: 720px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.open-call-section.is-visible .open-call-inner {
   animation: oc-fade-up 0.7s ease both;
 }
 
@@ -480,6 +507,10 @@ p {
   padding: 5px 18px;
   border-radius: 50px;
   margin-bottom: 20px;
+  opacity: 0;
+}
+
+.open-call-section.is-visible .open-call-badge {
   animation: oc-badge-pop 0.6s cubic-bezier(.34,1.56,.64,1) 0.2s both;
 }
 
@@ -508,6 +539,10 @@ p {
   background: var(--accent-color);
   border-radius: 2px;
   margin-top: 4px;
+  opacity: 0;
+}
+
+.open-call-section.is-visible .open-call-title .accent::after {
   animation: oc-fade-up 0.5s ease 0.6s both;
 }
 
@@ -516,6 +551,10 @@ p {
   font-size: 1rem;
   line-height: 1.9;
   margin: 0 0 36px;
+  opacity: 0;
+}
+
+.open-call-section.is-visible .open-call-lead {
   animation: oc-fade-up 0.6s ease 0.3s both;
 }
 
@@ -525,6 +564,10 @@ p {
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 36px;
+  opacity: 0;
+}
+
+.open-call-section.is-visible .open-call-cards {
   animation: oc-fade-up 0.6s ease 0.45s both;
 }
 
@@ -563,6 +606,10 @@ p {
   font-size: 0.95rem;
   line-height: 1.8;
   margin: 0 0 40px;
+  opacity: 0;
+}
+
+.open-call-section.is-visible .open-call-sub {
   animation: oc-fade-up 0.6s ease 0.55s both;
 }
 
@@ -577,8 +624,12 @@ p {
   padding: 18px 48px;
   border-radius: 50px;
   text-decoration: none;
-  animation: oc-pulse 2.4s ease-in-out infinite, oc-fade-up 0.6s ease 0.65s both;
+  opacity: 0;
   transition: background-color 0.2s, transform 0.2s;
+}
+
+.open-call-section.is-visible .open-call-btn {
+  animation: oc-pulse 2.4s ease-in-out infinite, oc-fade-up 0.6s ease 0.65s both;
 }
 
 .open-call-btn:hover {
