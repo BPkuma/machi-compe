@@ -16,7 +16,7 @@
         observer.unobserve(section); // 一度発火したら監視終了
       }
     });
-  }, { threshold: 0.05 });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
   observer.observe(section);
 })();

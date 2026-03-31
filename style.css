@@ -132,7 +132,7 @@ p {
   color: var(--white);
   padding: 8px 24px;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-bottom: 20px;
   transform: rotate(-1deg);
   box-shadow: 3px 3px 0 var(--primary-color);
@@ -223,7 +223,7 @@ p {
   letter-spacing: 0.05em;
   animation: result-title-in 0.7s cubic-bezier(.34,1.56,.64,1) both,
              result-title-glow 3s ease-in-out 0.8s infinite;
-  margin-bottom: 36px;
+  margin-bottom: 8px;
   padding-bottom: 16px;
   border-bottom: 3px solid;
   border-image: linear-gradient(90deg, #e6b800, #b8860b) 1;
@@ -295,7 +295,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-top: 28px;
+  margin-top: 0px;
 }
 
 .award-item {
@@ -465,8 +465,13 @@ p {
   50%       { transform: translateX(6px); }
 }
 
+@keyframes oc-card-glow {
+  0%, 100% { box-shadow: 0 0 8px 4px rgba(224, 123, 57, 0.15); }
+  50%       { box-shadow: 0 0 22px 10px rgba(224, 123, 57, 0.35); }
+}
+
 .open-call-section {
-  padding: 100px 24px;
+  padding: 50px 24px;
   text-align: center;
   background: linear-gradient(135deg, #fff8ee 0%, #fdf0d8 50%, #fae8c4 100%);
   border-bottom: 2px dashed var(--border);
@@ -572,18 +577,18 @@ p {
 
 .open-call-card {
   background: var(--white);
-  border: 2px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: 16px;
   padding: 24px 32px;
   min-width: 200px;
   flex: 1;
   max-width: 260px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s;
+  animation: oc-card-glow 3.5s ease-in-out infinite;
 }
 
 .open-call-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(92,61,30,0.12);
 }
 
 .open-call-card-icon {
@@ -601,9 +606,9 @@ p {
 }
 
 .open-call-sub {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.8;
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.9;
   margin: 0 0 40px;
   opacity: 0;
 }
