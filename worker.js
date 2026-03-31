@@ -8,6 +8,16 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    const contentType = response.headers.get('content-type') || '';
+
+    // HTMLはキャッシュしない（デプロイ後即反映）
+    if (contentType.includes('text/html')) {
+      const newResponse = new Response(response.body, response);
+      newResponse.headers.set('Cache-Control', 'no-cache');
+      return newResponse;
+    }
+
+    return response;
   }
 };
