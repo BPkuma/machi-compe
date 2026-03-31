@@ -97,6 +97,13 @@
   }, { threshold: 0.01 });
 
   observer.observe(section);
+
+  // iPad Safari では初期表示時に IntersectionObserver が発火しない場合があるためフォールバック
+  const rect = section.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    start();
+  }
+
   window.addEventListener('resize', () => { if (running) { resize(); } });
 
   // 設定が途中で変わった場合も追従
