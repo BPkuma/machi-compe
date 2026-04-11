@@ -2,15 +2,5 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "machi-compe",
   "compatibility_date": "2025-09-27",
-  "main": "worker.js",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "directory": ".",
-    "binding": "ASSETS"
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "pages_build_output_dir": "."
 }
