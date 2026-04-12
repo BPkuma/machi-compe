@@ -261,6 +261,13 @@ p {
     opacity: 1;
     transform: none;
   }
+  /* インタビュー見出しも即表示 */
+  .interviews-section-header.is-visible .interviews-label,
+  .interviews-section-header.is-visible .interviews-title,
+  .interviews-section-header.is-visible .interviews-title::after {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .schedule-card {
@@ -505,7 +512,6 @@ p {
   padding: 50px 24px;
   text-align: center;
   background: linear-gradient(135deg, #fff8ee 0%, #fdf0d8 50%, #fae8c4 100%);
-  border-bottom: 2px dashed var(--border);
   overflow: hidden;
   position: relative;
 }
@@ -683,6 +689,17 @@ p {
   animation: none;
 }
 
+@keyframes interviews-title-in {
+  0%   { opacity: 0; transform: translateY(24px) scale(0.96); }
+  60%  { opacity: 1; transform: translateY(-4px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes interviews-label-in {
+  from { opacity: 0; letter-spacing: 8px; }
+  to   { opacity: 1; letter-spacing: 4px; }
+}
+
 .interviews-section {
   padding: 50px 0;
 }
@@ -698,6 +715,54 @@ p {
   color: var(--primary-color);
   margin: 0 0 12px;
   font-style: italic;
+}
+
+/* インタビューセクション専用ヘッダー */
+.interviews-section-header .interviews-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  opacity: 0;
+}
+
+.interviews-section-header .interviews-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  margin: 0 0 16px;
+  font-style: italic;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+}
+
+.interviews-section-header .interviews-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  margin: 10px auto 0;
+  opacity: 0;
+}
+
+/* スクロールで表示されたときにアニメーション開始 */
+.interviews-section-header.is-visible .interviews-label {
+  animation: interviews-label-in 0.7s ease both;
+}
+
+.interviews-section-header.is-visible .interviews-title {
+  animation: interviews-title-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.interviews-section-header.is-visible .interviews-title::after {
+  animation: interviews-label-in 0.6s ease 0.6s both;
 }
 
 .section-header p {
@@ -886,6 +951,7 @@ p {
   font-weight: 700;
   cursor: not-allowed;
 }
+
 
 /* ＝＝＝ コンペ概要 ＝＝＝ */
 .about-section {
