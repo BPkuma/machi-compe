@@ -8,7 +8,11 @@
       "Bash(cwebp -q 80 exam3.jpg -o exam3.webp)",
       "Bash(cwebp -q 85 main.jpg -o main.webp)",
       "Bash(ls -lh *.jpg *.webp)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "WebFetch(domain:note.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
