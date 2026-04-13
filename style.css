@@ -786,6 +786,8 @@ p {
   box-shadow: 3px 3px 0 var(--tan);
   border: 1.5px solid var(--border);
   transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
 }
 
 .interview-card:hover {
@@ -841,7 +843,11 @@ p {
 .card-content {
   padding: 24px 28px;
   border-top: 2px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
+
 
 .card-vol {
   font-size: 0.75rem;
@@ -877,6 +883,7 @@ p {
   font-weight: 700;
   color: #c4b8a8;
   letter-spacing: 0.5px;
+  margin-top: auto;
 }
 
 .card-photo {
@@ -915,7 +922,8 @@ p {
 }
 
 .interview-card--link {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
 }
