@@ -950,6 +950,7 @@ p {
 }
 
 .more-btn {
+  display: inline-block;
   background-color: transparent;
   color: var(--text-muted);
   border: 2px dashed var(--border);
@@ -957,7 +958,20 @@ p {
   border-radius: 3px;
   font-size: 0.85rem;
   font-weight: 700;
-  cursor: not-allowed;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.more-btn:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.more-btn-icon {
+  font-size: 1em;
+  vertical-align: middle;
+  line-height: 1;
 }
 
 
