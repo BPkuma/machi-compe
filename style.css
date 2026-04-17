@@ -518,7 +518,7 @@ p {
 
 .workshop-section::before,
 .workshop-section::after {
-  content: "⚓";
+  content: "💬";
   position: absolute;
   font-size: 100px;
   color: rgba(60, 120, 160, 0.06);
