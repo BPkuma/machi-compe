@@ -97,11 +97,25 @@
         <a href="#interviews">応募者インタビュー</a>
         <a href="#about">コンペ概要</a>
       </nav>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </header>
 
+  <div class="mobile-menu" aria-hidden="true">
+    <nav class="mobile-menu-nav">
+      <a href="#schedule" class="mobile-menu-link">審査結果</a>
+      <a href="#workshop" class="mobile-menu-link">ワークショップ</a>
+      <a href="#interviews" class="mobile-menu-link">応募者インタビュー</a>
+      <a href="#about" class="mobile-menu-link">コンペ概要</a>
+    </nav>
+  </div>
+
   <div class="announce-bar">
-    <span>💬 5月16日（土）ワークショップ開催決定！</span>
+    <span>💬 5月16日（土）<em class="announce-bar-em">ワークショップ開催決定！</em></span>
     <a href="#workshop" class="announce-bar-btn">詳細・申込はこちら →</a>
   </div>
 
@@ -388,6 +402,27 @@
 
   <script src="confetti.js" defer></script>
   <script src="animations.js?v=09bac27" defer></script>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', false);
+        mobileMenu.setAttribute('aria-hidden', true);
+      });
+    });
+
+  </script>
 
 </body>
 </html>
