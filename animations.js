@@ -19,6 +19,24 @@
     }
   }
 
+  // ワークショップセクション
+  const wsSection = document.getElementById('workshop');
+  if (wsSection) {
+    if (reducedMotion.matches) {
+      wsSection.classList.add('is-visible');
+    } else {
+      const wsObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            wsSection.classList.add('is-visible');
+            wsObserver.unobserve(wsSection);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      wsObserver.observe(wsSection);
+    }
+  }
+
   // インタビューセクション見出し
   const interviewsHeader = document.querySelector('.interviews-section-header');
   if (interviewsHeader) {
