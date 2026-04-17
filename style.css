@@ -167,11 +167,11 @@ p {
 /* モバイルメニュードロワー */
 .mobile-menu {
   position: fixed;
-  top: 106px; /* header(64px) + announce-bar(~42px) */
+  top: 106px; /* header(64px) + announce-bar(~42px)、JSで動的に上書き */
   left: 0;
   width: 100%;
   background: var(--primary-color);
-  z-index: 99;
+  z-index: 101;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.4s cubic-bezier(.4,0,.2,1);

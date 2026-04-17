@@ -17,6 +17,9 @@
 /animations.js
   Cache-Control: public, max-age=3600
 
+/main.js
+  Cache-Control: public, max-age=3600
+
 /images/*
   Cache-Control: public, max-age=2592000
 
