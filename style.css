@@ -643,7 +643,7 @@ p {
   content: "💬";
   position: absolute;
   font-size: 100px;
-  color: rgba(60, 120, 160, 0.15);
+  opacity: 0.15;
   pointer-events: none;
 }
 .workshop-section::before { top: -10px; left: -10px; }
