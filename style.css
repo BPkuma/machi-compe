@@ -638,16 +638,6 @@ p {
   position: relative;
 }
 
-.workshop-section::before,
-.workshop-section::after {
-  content: "💬";
-  position: absolute;
-  font-size: 100px;
-  opacity: 0.15;
-  pointer-events: none;
-}
-.workshop-section::before { top: -10px; left: -10px; }
-.workshop-section::after  { bottom: -10px; right: -10px; }
 
 .workshop-inner {
   max-width: 780px;
