@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://machi-compe.pages.dev/sitemap.xml
+Sitemap: https://machi-compe.com/sitemap.xml
