@@ -448,6 +448,7 @@ p {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   text-align: left;
+  min-height: 96px;
 }
 
 .award-item span:first-child {
@@ -465,6 +466,8 @@ p {
   line-height: 1.6;
   padding-left: 24px;
   text-align: left;
+  flex: 1;
+  min-width: 0;
 }
 
 .award-gold {
@@ -1164,10 +1167,26 @@ p {
   line-height: 1.8;
 }
 
-.interviews-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.interviews-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.interviews-track {
+  display: flex;
   gap: 28px;
+  width: max-content;
+  animation: marquee-rtl 32s linear infinite;
+}
+
+.interviews-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 .interview-card {
@@ -1179,6 +1198,8 @@ p {
   transition: transform 0.25s, box-shadow 0.25s;
   display: flex;
   flex-direction: column;
+  width: 320px;
+  flex-shrink: 0;
 }
 
 .interview-card:hover {
@@ -1506,11 +1527,7 @@ p {
     gap: 16px;
   }
 
-  .interviews-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .about-grid {
+.about-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
