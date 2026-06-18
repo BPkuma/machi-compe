@@ -37,9 +37,9 @@
     }
   }
 
-  // インタビューセクション見出し
-  const interviewsHeader = document.querySelector('.interviews-section-header');
-  if (interviewsHeader) {
+  // インタビュー・ストーリーセクション見出し（複数対応）
+  const interviewsHeaders = document.querySelectorAll('.interviews-section-header');
+  interviewsHeaders.forEach(interviewsHeader => {
     if (reducedMotion.matches) {
       interviewsHeader.classList.add('is-visible');
     } else {
@@ -53,5 +53,5 @@
       }, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
       ivObserver.observe(interviewsHeader);
     }
-  }
+  });
 })();

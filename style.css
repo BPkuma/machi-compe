@@ -1098,6 +1098,25 @@ p {
   padding: 50px 0;
 }
 
+.den-story-section {
+  padding: 50px 0 64px;
+  border-top: 2px dashed var(--border);
+}
+
+.den-story-card-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.den-story-card {
+  width: auto !important;
+}
+
+.card-award-badge--story {
+  background-color: var(--primary-color);
+  color: var(--cream);
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 48px;
