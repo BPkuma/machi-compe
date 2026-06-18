@@ -1333,6 +1333,11 @@ p {
   color: #5a1a00;
 }
 
+.card-award-badge--fun {
+  background-color: #a8c8a0;
+  color: #1a3a18;
+}
+
 .interview-card--link {
   display: flex;
   flex-direction: column;
